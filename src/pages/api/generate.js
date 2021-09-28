@@ -1,7 +1,7 @@
 const randomId = require("../../libs/random-id").default;
 const { newShortLink } = require("../../services/sheet-api");
 
-export default async function handler(req, res) {
+export default function handler(req, res) {
   const { method, body } = req;
 
   if (method === "POST") {
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
       const id = randomId();
 
-      await newShortLink({ url, id });
+      newShortLink({ url, id });
 
       return res.status(200).json({ message: "success", data: { url, id } });
     } catch (error) {
