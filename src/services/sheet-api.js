@@ -38,18 +38,13 @@ export async function getUrl(param) {
 export async function newShortLink(data) {
   const { url, id } = data;
   const sheets = await getAccessSheet();
-  await sheets.spreadsheets.values.append(
-    {
-      spreadsheetId: process.env.SHEET_ID,
-      range: "Sheet1",
-      valueInputOption: "RAW",
-      insertDataOption: "INSERT_ROWS",
-      resource: {
-        values: [[id, url, new Date().toISOString()]],
-      },
+  await sheets.spreadsheets.values.append({
+    spreadsheetId: process.env.SHEET_ID,
+    range: "Sheet1",
+    valueInputOption: "RAW",
+    insertDataOption: "INSERT_ROWS",
+    resource: {
+      values: [[id, url, new Date().toISOString()]],
     },
-    (err) => {
-      if (err) throw err;
-    }
-  );
+  });
 }
