@@ -97,7 +97,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const basePath = process.env.VERCEL_URL || "http://localhost:3000/";
+  const basePath = process.env.BASE_URL;
 
   return { props: { basePath } };
 }
