@@ -1,9 +1,8 @@
 import { google } from "googleapis";
 import csv2Json from "../libs/csv-to-json";
 
-let sheet;
-
 async function getAccessSheet() {
+  let sheet;
   if (!sheet) {
     const auth = await google.auth.getClient({
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
