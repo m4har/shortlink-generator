@@ -7,6 +7,10 @@ async function getAccessSheet() {
   if (!sheet) {
     const auth = await google.auth.getClient({
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+      credentials: {
+        client_email: process.env.CLIENT_EMAIL,
+        private_key: process.env.PRIVATE_KEY,
+      },
     });
     sheet = google.sheets({ version: "v4", auth });
   }
