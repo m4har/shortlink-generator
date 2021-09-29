@@ -64,7 +64,7 @@ export default function Home(props) {
             </div>
           </div>
         </form>
-        <div style={{ display: "flex" }} className="center">
+        <div className="center line">
           <div className="pager" />
         </div>
         <div className="items center" style={{ margin: "0px 20px" }}>

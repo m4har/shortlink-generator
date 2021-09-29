@@ -17,6 +17,9 @@ const container = styled.div`
     align-items: center;
     justify-content: center;
   }
+  .line {
+    display: flex;
+  }
 
   .pager {
     border: 1px solid;
@@ -34,7 +37,7 @@ const container = styled.div`
   }
   .spreadLink {
     display: inline-block;
-    width: 300px;
+    max-width: 300px;
     white-space: nowrap;
     overflow: hidden !important;
     text-overflow: ellipsis;
@@ -51,11 +54,20 @@ const container = styled.div`
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-    width: 300px;
+    max-width: 300px;
   }
 
   tr:nth-child(even) {
     background-color: #dddddd;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    .line {
+      visibility: hidden;
+    }
   }
 `;
 export default container;
